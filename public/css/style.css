@@ -1,0 +1,42 @@
+/* YOUR CUSTOM STYLES */
+.header {
+    top: 0;
+    width: 100%;
+    height: 67px;
+    display: flex;
+    align-items: center;
+}
+
+
+.logo {
+    width: 160px;
+    height: 67px;
+}
+
+.header-input {
+    position: absolute;
+    right: 0;
+    width: 360px;
+    height: 46px;
+    padding: 0 16px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 92px;
+}
+
+.header-link {
+    padding-left: 16px;
+    color: #000;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.product-img {
+    background-size: cover;
+}
+.product-img img{
+    text-align: center;
+    max-width:600px;
+    max-height:400px;
+    width: auto;
+    height: auto;
+}
