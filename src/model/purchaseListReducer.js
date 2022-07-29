@@ -1,6 +1,13 @@
 import * as Actions from '../controller/ActionTypes';
 
-let initialState = [];
+let initialState = [
+    // {
+    //     cartId: ,
+    //     products: [],
+    //     total: ,
+    //     totalAmount: 
+    // }
+];
 
 const purchaseListReducer = (state = initialState, action) => {
     let index = -1;
@@ -36,7 +43,6 @@ const purchaseListReducer = (state = initialState, action) => {
                     const id = action.data;
                     if(!id) return state;
                     state = state.filter((cart) => cart.cartId !== id)
-                    console.log(state)
                     return [...state];
                 }
                 case 'btndown_purchase_list': {
@@ -62,35 +68,12 @@ const purchaseListReducer = (state = initialState, action) => {
                     carts[index].quantity += 1;
                     return [...newState]; 
                 }
-                case 'delete_purchase_list': {
-                    const id = action.data.id
-                    const cartId = action.data.cartId
-                    console.log(state)
-                    console.log(id);
-                    console.log(cartId);
-                    let newProducts = state[cartId].products.filter(product => product.id !== id)
-                    let newTotal = newProducts.reduce((total, product) => total + product.quantity * (+product.price), 0)
-                    let cartUpdate = {...state[cartId], products: newProducts, total:newTotal, totalAmount: 2}
-                    console.log(newProducts);
-                    console.log(newTotal);
-                    console.log(cartUpdate);
-                    // console.log(newState)
-                    // state[cartId].products = [newState]
-                    // console.log(state)
-                    const newState = state.map((cart, index)=> {
-                        if(index === cartId){
-                            return cartUpdate
-                        }
-                        return cart
-                    })
-                    return newState;
-                    // return console.log(state); 
+                case 'delete_product_purchase_detail': {
+                    const data = action.data;
+                    if(!data) return state;
+                    return [...data];
                 }
-
-
             }
-            // console.log(action.payoad)
-            // return [...state];
         }
         case Actions.DELETE_CART_PURCHASE: {
             // let cartId = action.payload.cartId

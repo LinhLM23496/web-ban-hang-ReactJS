@@ -2,8 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Actions from '../controller/ActionTypes';
 
-const CartResult = (carts) => {
-    const products = useSelector(state => state.productReducer);
+const PurchaseDetailCartResult = (carts) => {
     let setBtn = carts.carts.length ? carts.carts.length : 0;
     const dispatch = useDispatch();
     const addPurchase = (e) => {
@@ -59,4 +58,4 @@ const CartResult = (carts) => {
     );
 }
 
-export default CartResult;
+export default PurchaseDetailCartResult;

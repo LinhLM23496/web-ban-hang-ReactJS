@@ -2,23 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as Actions from '../controller/ActionTypes';
 
-const CartItem = (data,cartId) => {
+const PurchaseDetailCartItem = (data) => {
     const dispatch = useDispatch();
     const products = data.data
-    const deleteProductInCart = (e) => {
-        dispatch({
-            type: Actions.UPDATE_CART,
-            ttype: 'delete_cart',
-            data: products.product.id,
-        })
-    };
-    const btnDown = (e) => {
-        dispatch({
-            type: Actions.UPDATE_CART,
-            ttype: 'btndown_cart',
-            data: products.product.id,
-        })
-    };
     const btnDownPurchaseDetail = (e) => {
         dispatch({
             type: Actions.UPDATE_PURCHASE_LIST,
@@ -26,15 +12,6 @@ const CartItem = (data,cartId) => {
             data: {
                 id: products.product.id,
                 cartId: data.cartId
-            }
-        })
-    };
-    const btnUp = (e) => {
-        dispatch({
-            type: Actions.UPDATE_CART,
-            ttype: 'btnup_cart',
-            data: {
-                id: products.product.id,
             }
         })
     };
@@ -50,8 +27,7 @@ const CartItem = (data,cartId) => {
     };
     const deleteProductInPurchaseDetail = (e) => {
         dispatch({
-            type: Actions.UPDATE_PURCHASE_LIST,
-            ttype: 'delete_product_purchase_detail',
+            type: Actions.DELETE_PRODUCT_PURCHASE_DETAIL_SAGA,
             data: {
                 id: products.product.id,
                 cartId: data.cartId
@@ -76,13 +52,13 @@ const CartItem = (data,cartId) => {
                 <span className="qty">{products.quantity}</span>
                 <div className="btn-group radio-group" data-toggle="buttons">
                     <label
-                        onClick={(data.cartId + 1) ? btnDownPurchaseDetail : btnDown}
+                        onClick={btnDownPurchaseDetail}
                         className="btn btn-sm btn-primary
                         btn-rounded waves-effect waves-light">
                         <a>—</a>
                     </label>
                     <label 
-                        onClick={(data.cartId + 1) ? btnUpPurchaseDetail : btnUp}
+                        onClick={btnUpPurchaseDetail}
                         className="btn btn-sm btn-primary
                         btn-rounded waves-effect waves-light">
                         <a>+</a>
@@ -94,7 +70,7 @@ const CartItem = (data,cartId) => {
             <td>
                 <button type="button" className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top"
                     title="" data-original-title="Remove item"
-                    onClick={(data.cartId + 1) ? deleteProductInPurchaseDetail : deleteProductInCart}
+                    onClick={deleteProductInPurchaseDetail}
                     >
                     X
                 </button>
@@ -104,4 +80,4 @@ const CartItem = (data,cartId) => {
     );
 }
 
-export default CartItem;
+export default PurchaseDetailCartItem;

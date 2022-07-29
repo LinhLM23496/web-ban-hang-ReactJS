@@ -1,7 +1,12 @@
 import * as Actions from '../controller/ActionTypes';
 
 // var initialState = [];
-let cart = [];
+let cart = [
+    // {
+    //     id: id,
+    //     quantity: 1
+    // }
+];
 
 const cartReducer = (state = cart, action) => {
     let index = -1;

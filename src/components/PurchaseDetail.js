@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
-import CartItem from "./CartItem";
-import CartResult from "./CartResult";
+import PurchaseDetailCartItem from "./PurchaseDetailCartItem";
+import PurchaseDetailCartResult from "./PurchaseDetailCartResult";
 
 const findCartInPurchase = (purchase, purchaseId) => {
     let index = -1;
@@ -24,7 +24,7 @@ const PurchaseDetail = () => {
     const carts = purchasesList[cartId].products;
     const products = useSelector(state => state.productReducer);
     let productItem = [];
-    const showCarts = (products, carts, carId) => {
+    const showCarts = (products, carts) => {
         let result = <tr><th><h1>GIỎ HÀNG ĐANG TRỐNG</h1></th></tr>;
         if (carts.length > 0) {
             carts.map(cart => {
@@ -35,7 +35,7 @@ const PurchaseDetail = () => {
                 return productItem.push(prod)
             })
             result = productItem.map((product, index) => {
-                return <CartItem key={index} data={product} cartId={cartId} />
+                return <PurchaseDetailCartItem key={index} data={product} cartId={cartId} />
             });
         }
         return result;
@@ -55,8 +55,8 @@ const PurchaseDetail = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        { showCarts(products, carts, cartId)}
-                        <CartResult carts={productItem} />
+                        { showCarts(products, carts)}
+                        <PurchaseDetailCartResult carts={productItem} />
                     </tbody>
                 </table>
             </div>

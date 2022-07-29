@@ -1,3 +1,5 @@
+export const ADD_PRODUCT_SAGA = 'ADD_PRODUCT_SAGA';
+export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const THEM_VAO_MY_CART = '2';
 export const UPDATE_CART = 'UPDATE_CART';
 export const UPDATE_CART_SAGA = 'UPDATE_CART_SAGA';
@@ -17,7 +19,9 @@ export const DELETE_CART_PURCHASE= 'delelte_cart_purchase';
 export const DELETE_PURCHASE_PURCHASELIST= 'delelte_purchase_purchaselist';
 export const DELETE_CART_PURCHASE_SAGA= 'delelte_cart_purchase_saga';
 export const UPDATE_PURCHASE_LIST = 'update_purchase_list';
+export const UPDATE_PURCHASE_LIST_SAGA = 'update_purchase_list_saga';
 export const BTNDOWN_PURCHASE_LIST = 'btndown_purchase_list';
 export const BTNUP_PURCHASE_LIST = 'btnup_purchase_list';
-export const DELETE_PURCHASE_LIST = 'delete_purchase_list';
+export const DELETE_PRODUCT_PURCHASE_DETAIL = 'delete_product_purchase_detail';
+export const DELETE_PRODUCT_PURCHASE_DETAIL_SAGA = 'delete_product_purchase_detail_saga';
 export const ADD_PURCHASE_LIST = 'add_purchase_list';

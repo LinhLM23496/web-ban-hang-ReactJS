@@ -7,7 +7,6 @@ const Purchases = (data) => {
     const dispatch = useDispatch();
     const products = data.data
     const deletePurchase = (e) => {
-        console.log(products.cartId)
         dispatch({
             type: Actions.DELETE_CART_PURCHASE_SAGA,
             ttype: 'delelte_cart_purchase',

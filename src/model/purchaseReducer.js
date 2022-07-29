@@ -1,6 +1,14 @@
 import * as Actions from '../controller/ActionTypes';
 
-let initialState = []; 
+let initialState = [
+    // {
+    //     cartId:
+    //     cartName:
+    //     total:
+    //     totalVax:
+    //     totalAmount:
+    // }
+]; 
 
 const purchaseReducer = (state = initialState, action) => {
     let index = -1;
@@ -37,8 +45,12 @@ const purchaseReducer = (state = initialState, action) => {
                     const id = action.data;
                     if(!id) return state;
                     state = state.filter((cart) => cart.cartId !== id)
-                    console.log(state)
                     return [...state];
+                }
+                case 'delete_product_purchase_detail': {
+                    const data = action.data;
+                    if(!data) return state;
+                    return [...data];
                 }
             }
         }
